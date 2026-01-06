@@ -4,6 +4,9 @@ import Badge from './Badge';
 import Button from './Button';
 import ScarcityBar from './ScarcityBar';
 
+// 1. Importe a imagem local aqui
+import expertImage from '../assets/images/image1.png';
+
 const Logo = () => (
   <div className="flex items-center gap-3 mb-12 md:mb-16">
     <svg width="40" height="40" viewBox="0 0 40 40" className="shrink-0">
@@ -33,32 +36,24 @@ const Hero: React.FC = () => {
       
       {/* Camadas de Fundo e Imagem da Expert */}
       <div className="absolute inset-0 z-0">
-        {/* Camada 1: Gradiente de fundo principal */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent z-[1]" />
         
-        {/* Camada 2: FOTO DA EXPERT - Forçada para a Direita Superior */}
         <div className="absolute right-0 top-0 h-full w-full flex justify-end items-start pointer-events-none z-[2]">
           <img 
-            src="https://ibb.co/tPxTTm0b/expert.png" 
+            src={expertImage} // 2. Use a variável da importação aqui
             alt="Expert" 
-            className="h-[65%] md:h-[95%] w-auto object-contain object-right-top opacity-50 md:opacity-100 transition-all duration-1000 transform translate-x-[15%] md:translate-x-0"
+            className="h-[65%] md:h-[95%] w-auto object-contain object-right-top opacity-50 md:opacity-100 transition-all duration-1000 transform translate-x-[10%] md:translate-x-0"
           />
-          {/* Máscaras de fusão para suavizar as bordas da foto */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0A0A0A]/20 to-[#0A0A0A] md:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0A0A0A]/20 to-[#0A0A0A] md:via-transparent" />
         </div>
 
-        {/* Camada 3: Brilho atmosférico (Radial Glow) */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(209,84,73,0.06)_0%,transparent_50%)] z-[3]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-12 py-12 md:py-16 flex flex-col min-h-screen justify-center">
-        
         <Logo />
-
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
-          
-          {/* Badges Verticais - Z-index alto para ficar sobre a foto no mobile */}
           <div className="flex flex-col items-start gap-3 w-full sm:w-auto relative z-20">
              <Badge icon={<Globe className="w-4 h-4" />} text="Negócios digitais" />
              <Badge icon={<CalendarDays className="w-4 h-4" />} text="17 de janeiro" />
@@ -66,7 +61,6 @@ const Hero: React.FC = () => {
              <Badge icon={<Video className="w-4 h-4" />} text="AO VIVO no Zoom" />
           </div>
 
-          {/* Conteúdo Principal */}
           <div className="flex-1 flex flex-col items-start text-left max-w-4xl relative z-20">
             <h1 className="mb-8 font-black text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight">
               Um dia inteiro desenhando a <br />
@@ -84,13 +78,11 @@ const Hero: React.FC = () => {
                   GARANTIR INGRESSO | LOTE 01
                 </Button>
               </div>
-              
               <ScarcityBar label="100% do LOTE 1 vendido" percentage={100} subtext="Preço atual: R$47" />
             </div>
           </div>
         </div>
       </div>
-
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-start/5 to-transparent pointer-events-none z-[5]" />
     </section>
   );
