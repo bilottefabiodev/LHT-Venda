@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imersão Lançamento High Ticket 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                dark: '#0A0A0A',
+                start: '#D15449',
+                middle: '#E88B4E',
+                end: '#F2B263',
+              }
+            },
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+            },
+            backgroundImage: {
+              'brand-gradient': 'linear-gradient(to right, #D15449, #E88B4E, #F2B263)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0A0A0A;
+        color: white;
+      }
+      .gradient-text {
+        background: linear-gradient(to right, #D15449, #E88B4E, #F2B263);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+      }
+      .cta-shadow {
+        box-shadow: 0 0 30px rgba(209, 84, 73, 0.4);
+      }
+      .cta-shadow:hover {
+        box-shadow: 0 0 50px rgba(232, 139, 78, 0.6);
+      }
+      
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 12s linear infinite;
+      }
+      .animate-marquee:hover {
+        animation-play-state: paused;
+      }
+
+      /* Custom style to handle icon gradients where possible */
+      .feature-icon-gradient svg {
+        stroke: url(#brand-grad);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@fortawesome/react-fontawesome": "https://esm.sh/@fortawesome/react-fontawesome@^3.1.1",
+    "@fortawesome/free-brands-svg-icons": "https://esm.sh/@fortawesome/free-brands-svg-icons@^7.1.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <svg width="0" height="0" class="absolute">
+      <defs>
+        <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#D15449;stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#E88B4E;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#F2B263;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+    </svg>
+    <div id="root"></div>
+  </body>
+</html>
