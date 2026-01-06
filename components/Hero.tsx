@@ -1,10 +1,8 @@
 import React from 'react';
-import { Globe, CalendarDays, Clock, Video } from 'lucide-react';
+import { CalendarDays, Clock, Video } from 'lucide-react';
 import Badge from './Badge';
 import Button from './Button';
 import ScarcityBar from './ScarcityBar';
-
-// 1. Importe a imagem local aqui
 import expertImage from '../assets/images/image1.png';
 
 const Logo = () => (
@@ -40,7 +38,7 @@ const Hero: React.FC = () => {
         
         <div className="absolute right-0 top-0 h-full w-full flex justify-end items-start pointer-events-none z-[2]">
           <img 
-            src={expertImage} // 2. Use a variável da importação aqui
+            src={expertImage} 
             alt="Expert" 
             className="h-[65%] md:h-[95%] w-auto object-contain object-right-top opacity-50 md:opacity-100 transition-all duration-1000 transform translate-x-[10%] md:translate-x-0"
           />
@@ -52,15 +50,19 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-12 py-12 md:py-16 flex flex-col min-h-screen justify-center">
+        
         <Logo />
+
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
-          <div className="flex flex-col items-start gap-3 w-full sm:w-auto relative z-20">
-             <Badge icon={<Globe className="w-4 h-4" />} text="Negócios digitais" />
+          
+          {/* Badges Verticais - Ajustados para w-fit para não cobrir o rosto */}
+          <div className="flex flex-col items-start gap-3 w-fit relative z-20">
              <Badge icon={<CalendarDays className="w-4 h-4" />} text="17 de janeiro" />
              <Badge icon={<Clock className="w-4 h-4" />} text="Das 10h às 17h" />
              <Badge icon={<Video className="w-4 h-4" />} text="AO VIVO no Zoom" />
           </div>
 
+          {/* Conteúdo Principal */}
           <div className="flex-1 flex flex-col items-start text-left max-w-4xl relative z-20">
             <h1 className="mb-8 font-black text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight">
               Um dia inteiro desenhando a <br />
@@ -78,11 +80,13 @@ const Hero: React.FC = () => {
                   GARANTIR INGRESSO | LOTE 01
                 </Button>
               </div>
+              
               <ScarcityBar label="100% do LOTE 1 vendido" percentage={100} subtext="Preço atual: R$47" />
             </div>
           </div>
         </div>
       </div>
+
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-start/5 to-transparent pointer-events-none z-[5]" />
     </section>
   );
