@@ -34,18 +34,29 @@ const Hero: React.FC = () => {
       
       {/* Camadas de Fundo e Imagem da Expert */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent z-[1]" />
+        {/* Camada 1: Gradiente de fundo principal (Esquerda para Direita) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent z-[1]" />
         
+        {/* Camada 2: FOTO DA EXPERT com Máscara de Corte */}
         <div className="absolute right-0 top-0 h-full w-full flex justify-end items-start pointer-events-none z-[2]">
-          <img 
-            src={expertImage} 
-            alt="Expert" 
-            className="h-[65%] md:h-[95%] w-auto object-contain object-right-top opacity-50 md:opacity-100 transition-all duration-1000 transform translate-x-[10%] md:translate-x-0"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0A0A0A]/20 to-[#0A0A0A] md:via-transparent" />
+          <div className="relative h-full w-full flex justify-end">
+            <img 
+              src={expertImage} 
+              alt="Expert" 
+              className="h-[75%] md:h-[95%] w-auto object-contain object-right-top opacity-60 md:opacity-100 transition-all duration-1000 transform translate-x-[10%] md:translate-x-0"
+              style={{
+                /* Esta máscara cria o efeito da linha verde: 
+                   Preto total até 25% da altura, depois revela a expert */
+                maskImage: 'linear-gradient(to bottom, transparent 25%, black 45%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, transparent 25%, black 45%)'
+              }}
+            />
+            {/* Sombras adicionais para garantir que o texto seja legível */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
+          </div>
         </div>
 
+        {/* Camada 3: Brilho atmosférico */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(209,84,73,0.06)_0%,transparent_50%)] z-[3]" />
       </div>
 
@@ -55,7 +66,7 @@ const Hero: React.FC = () => {
 
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
           
-          {/* Badges Verticais - Ajustados para w-fit para não cobrir o rosto */}
+          {/* Badges Verticais */}
           <div className="flex flex-col items-start gap-3 w-fit relative z-20">
              <Badge icon={<CalendarDays className="w-4 h-4" />} text="17 de janeiro" />
              <Badge icon={<Clock className="w-4 h-4" />} text="Das 10h às 17h" />
@@ -80,6 +91,8 @@ const Hero: React.FC = () => {
                   GARANTIR INGRESSO | LOTE 01
                 </Button>
               </div>
+              
+              <ScarcityBar label="100% do LOTE 1 vendido" percentage={100} subtext="Preço atual: R$47" />
             </div>
           </div>
         </div>
