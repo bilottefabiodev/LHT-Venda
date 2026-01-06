@@ -34,24 +34,24 @@ const Hero: React.FC = () => {
       
       {/* Camadas de Fundo e Imagem da Expert */}
       <div className="absolute inset-0 z-0">
-        {/* Camada 1: Gradiente de fundo principal (Esquerda para Direita) */}
+        {/* Camada 1: Gradiente de fundo principal */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent z-[1]" />
         
-        {/* Camada 2: FOTO DA EXPERT com Máscara Invertida (De baixo para cima) */}
+        {/* Camada 2: FOTO DA EXPERT - Ajustada mais à direita */}
         <div className="absolute right-0 top-0 h-full w-full flex justify-end items-start pointer-events-none z-[2]">
           <div className="relative h-full w-full flex justify-end">
             <img 
               src={expertImage} 
               alt="Expert" 
-              className="h-[85%] md:h-full w-auto object-contain object-right-top opacity-80 md:opacity-100 transition-all duration-1000 transform translate-x-[5%] md:translate-x-0"
+              className="h-[85%] md:h-full w-auto object-contain object-right-top opacity-80 md:opacity-100 transition-all duration-1000 transform translate-x-[15%] md:translate-x-0"
               style={{
-                /* Invertido: Revela a imagem no topo (black 0%) e some na base (transparent 55%) 
+                /* Invertido: Revela no topo e aplica o fundo preto de baixo para cima 
                    ajustado para a altura da sua linha verde */
                 maskImage: 'linear-gradient(to bottom, black 0%, black 35%, transparent 55%)',
                 WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 35%, transparent 55%)'
               }}
             />
-            {/* Sombras laterais para manter o texto legível */}
+            {/* Máscara lateral para integração fluida no mobile */}
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0A0A0A]/20 to-[#0A0A0A] md:hidden" />
           </div>
         </div>
@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
 
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
           
-          {/* Badges Verticais */}
+          {/* Badges Verticais - Largura fit para não sobrepor o rosto */}
           <div className="flex flex-col items-start gap-3 w-fit relative z-20">
              <Badge icon={<CalendarDays className="w-4 h-4" />} text="17 de janeiro" />
              <Badge icon={<Clock className="w-4 h-4" />} text="Das 10h às 17h" />
@@ -91,8 +91,6 @@ const Hero: React.FC = () => {
                   GARANTIR INGRESSO | LOTE 01
                 </Button>
               </div>
-              
-              <ScarcityBar label="100% do LOTE 1 vendido" percentage={100} subtext="Preço atual: R$47" />
             </div>
           </div>
         </div>
