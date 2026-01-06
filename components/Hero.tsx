@@ -80,8 +80,6 @@ const Hero: React.FC = () => {
                   GARANTIR INGRESSO | LOTE 01
                 </Button>
               </div>
-              
-              <ScarcityBar label="100% do LOTE 1 vendido" percentage={100} subtext="Preço atual: R$47" />
             </div>
           </div>
         </div>
