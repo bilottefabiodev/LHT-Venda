@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
         {/* Camada 2: FOTO DA EXPERT - Forçada para a Direita Superior */}
         <div className="absolute right-0 top-0 h-full w-full flex justify-end items-start pointer-events-none z-[2]">
           <img 
-            src="https://i.ibb.co/4gnZSTjQ/expert.png" 
+            src="https://ibb.co/tPxTTm0b/expert.png" 
             alt="Expert" 
             className="h-[65%] md:h-[95%] w-auto object-contain object-right-top opacity-50 md:opacity-100 transition-all duration-1000 transform translate-x-[15%] md:translate-x-0"
           />
