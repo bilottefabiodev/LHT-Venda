@@ -37,22 +37,22 @@ const Hero: React.FC = () => {
         {/* Camada 1: Gradiente de fundo principal (Esquerda para Direita) */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent z-[1]" />
         
-        {/* Camada 2: FOTO DA EXPERT com Máscara de Corte */}
+        {/* Camada 2: FOTO DA EXPERT com Máscara Invertida (De baixo para cima) */}
         <div className="absolute right-0 top-0 h-full w-full flex justify-end items-start pointer-events-none z-[2]">
           <div className="relative h-full w-full flex justify-end">
             <img 
               src={expertImage} 
               alt="Expert" 
-              className="h-[75%] md:h-[95%] w-auto object-contain object-right-top opacity-60 md:opacity-100 transition-all duration-1000 transform translate-x-[10%] md:translate-x-0"
+              className="h-[85%] md:h-full w-auto object-contain object-right-top opacity-80 md:opacity-100 transition-all duration-1000 transform translate-x-[5%] md:translate-x-0"
               style={{
-                /* Esta máscara cria o efeito da linha verde: 
-                   Preto total até 25% da altura, depois revela a expert */
-                maskImage: 'linear-gradient(to bottom, transparent 25%, black 45%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, transparent 25%, black 45%)'
+                /* Invertido: Revela a imagem no topo (black 0%) e some na base (transparent 55%) 
+                   ajustado para a altura da sua linha verde */
+                maskImage: 'linear-gradient(to bottom, black 0%, black 35%, transparent 55%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 35%, transparent 55%)'
               }}
             />
-            {/* Sombras adicionais para garantir que o texto seja legível */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
+            {/* Sombras laterais para manter o texto legível */}
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0A0A0A]/20 to-[#0A0A0A] md:hidden" />
           </div>
         </div>
 
