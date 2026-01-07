@@ -87,7 +87,7 @@ const StrategicAlignment: React.FC = () => {
             </ul>
             
             <p className="text-black/60 font-medium leading-relaxed italic">
-              Não estamos aqui para vender facilidade. Estamos aqui para vender inteligência estratégica e lucro real.
+              Não estamos aqui para vender milagre. Estamos aqui para vender inteligência estratégica e lucro real.
             </p>
           </div>
         </div>
