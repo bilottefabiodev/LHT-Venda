@@ -12,7 +12,7 @@ const MethodologyAndResults = () => {
     },
     {
       id: "02",
-      title: "LEAD DATA",
+      title: "LEAD SCORE",
       benefit: "Leads Frios que Compram",
       description: "Sistema de lead score altamente eficiente. Identifique e priorize quem tem real intenção de compra, eliminando o desperdício com curiosos.",
       icon: <Target className="w-5 h-5" />
@@ -35,7 +35,7 @@ const MethodologyAndResults = () => {
       id: "05",
       title: "AUTOMAÇÃO SOBERANA",
       benefit: "100% Lucrativo, 0% Equipe",
-      description: "Agentes de IA treinados na metodologia que faturou +36 milhões. Complexidade máxima executada com esforço mínimo e margem máxima.",
+      description: "Agentes de IA treinados na metodologia que faturou +36 milhões. Ações executadas com esforço mínimo e margem máxima.",
       icon: <Bot className="w-5 h-5" />
     }
   ];
