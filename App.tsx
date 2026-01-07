@@ -1,54 +1,52 @@
-
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// --- BLOCOS INICIAIS (Abertura e Desejo) ---
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import Features from './components/Features';
-import Methodology from './components/Methodology'; // Unificado: Por que e Pra quem funciona
-
-// --- BLOCOS DE CONTEÚDO (O Dossiê Técnico) ---
+import MethodologyAndResults from './components/Methodology';
 import Diagnosis from './components/Diagnosis';
 import RealProblem from './components/RealProblem';
 import System2026 from './components/System2026';
 import InPractice from './components/InPractice';
-
-// --- BLOCOS DE FECHAMENTO (Oferta e Autoridade) ---
 import PricingSection from './components/PricingSection';
-import StrategicAlignment from './components/StrategicAlignment'; // Ancoragem R$ 10k
+import StrategicAlignment from './components/StrategicAlignment';
 import InstructorBio from './components/InstructorBio';
 import StrategicFAQ from './components/StrategicFAQ';
 import Footer from './components/Footer';
+import ThankYou from './components/ThankYou';
+
+const SalesPage = () => (
+  <div className="flex flex-col">
+    <Hero />
+    <Marquee />
+    <Features />
+    <MethodologyAndResults />
+    <Diagnosis />
+    <RealProblem />
+    <System2026 />
+    <InPractice />
+    <PricingSection />
+    <StrategicAlignment />
+    <InstructorBio />
+    <StrategicFAQ />
+    <div className="pb-20 bg-[#0A0A0A] border-t border-white/5">
+      <PricingSection />
+    </div>
+    <Footer />
+  </div>
+);
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-[#0A0A0A] flex flex-col font-sans">
-      {/* 1. O COMEÇO: Estabelece Autoridade e Desejo */}
-      <Hero />
-      <Marquee />
-      <Features />
-      <Methodology />
-
-      {/* 2. O MEIO: Quebra o modelo velho e instala o novo sistema */}
-      <Diagnosis />
-      <RealProblem />
-      <System2026 />
-      <InPractice />
-
-      {/* 3. O FECHAMENTO: A oferta e a quebra final de objeções */}
-      <PricingSection />
-      <StrategicAlignment />
-      <InstructorBio />
-      <StrategicFAQ />
-
-      {/* 4. REPETIÇÃO: O golpe de misericórdia para conversão */}
-      <div className="pb-20 bg-[#0A0A0A] border-t border-white/5">
-        <PricingSection />
+    <BrowserRouter>
+      <div className="min-h-screen w-full overflow-x-hidden bg-[#0A0A0A] flex flex-col font-sans">
+        <Routes>
+          <Route path="/" element={<SalesPage />} />
+          <Route path="/obrigado" element={<ThankYou />} />
+        </Routes>
       </div>
-
-      {/* 5. RODAPÉ INFORMATIVO */}
-      <Footer />
-    </div>
+    </BrowserRouter>
   );
 };
 
