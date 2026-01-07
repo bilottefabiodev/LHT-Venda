@@ -20,7 +20,7 @@ const Logo = () => (
       </mask>
     </svg>
     <div className="flex flex-col">
-      <span className="text-[9px] font-medium text-gray-400 uppercase tracking-tighter leading-none mb-1">Workshop</span>
+      <span className="text-[9px] font-medium text-gray-400 uppercase tracking-tighter leading-none mb-1">Imersão</span>
       <h2 className="text-sm md:text-base font-black leading-tight tracking-tight text-white uppercase">
         Lançamento<br />High Ticket 2026
       </h2>
