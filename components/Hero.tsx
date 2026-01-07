@@ -31,13 +31,8 @@ const Logo = () => (
 const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col bg-[#0A0A0A] text-white font-sans selection:bg-brand-start selection:text-white">
-      
-      {/* Camadas de Fundo e Imagem da Expert */}
       <div className="absolute inset-0 z-0">
-        {/* Camada 1: Gradiente de fundo principal */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent z-[1]" />
-        
-        {/* Camada 2: FOTO DA EXPERT - Ajustada mais à direita */}
         <div className="absolute right-0 top-0 h-full w-full flex justify-end items-start pointer-events-none z-[2]">
           <div className="relative h-full w-full flex justify-end">
             <img 
@@ -45,57 +40,46 @@ const Hero: React.FC = () => {
               alt="Expert" 
               className="h-[85%] md:h-full w-auto object-contain object-right-top opacity-80 md:opacity-100 transition-all duration-1000 transform translate-x-[15%] md:translate-x-0"
               style={{
-                /* Invertido: Revela no topo e aplica o fundo preto de baixo para cima 
-                   ajustado para a altura da sua linha verde */
                 maskImage: 'linear-gradient(to bottom, black 0%, black 35%, transparent 55%)',
                 WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 35%, transparent 55%)'
               }}
             />
-            {/* Máscara lateral para integração fluida no mobile */}
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0A0A0A]/20 to-[#0A0A0A] md:hidden" />
           </div>
         </div>
-
-        {/* Camada 3: Brilho atmosférico */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(209,84,73,0.06)_0%,transparent_50%)] z-[3]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-12 py-12 md:py-16 flex flex-col min-h-screen justify-center">
-        
         <Logo />
-
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
-          
-          {/* Badges Verticais - Largura fit para não sobrepor o rosto */}
           <div className="flex flex-col items-start gap-3 w-fit relative z-20">
              <Badge icon={<CalendarDays className="w-4 h-4" />} text="17 de janeiro" />
              <Badge icon={<Clock className="w-4 h-4" />} text="Das 10h às 17h" />
              <Badge icon={<Video className="w-4 h-4" />} text="AO VIVO no Zoom" />
           </div>
-
-          {/* Conteúdo Principal */}
           <div className="flex-1 flex flex-col items-start text-left max-w-4xl relative z-20">
             <h1 className="mb-8 font-black text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight">
               Um dia inteiro desenhando a <br />
               <span className="gradient-text">estratégia do seu próximo lançamento.</span>
             </h1>
-
             <p className="mb-12 text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed">
               Método híbrido, testado em diferentes nichos, mais de 100 mentorados que ultrapassam <strong className="text-white font-bold">36 milhões faturados</strong>. 
               Modelo atualizado para <strong className="text-white font-bold">mercado caro, saturado e desconfiado</strong>.
             </p>
-
             <div className="w-full max-w-md">
               <div className="mb-4">
-                <Button>
-                  GARANTIR INGRESSO | LOTE 01
-                </Button>
+                {/* Link do Checkout Adicionado Aqui */}
+                <a href="https://chk.eduzz.com/797VE1RVWE" target="_self">
+                  <Button>
+                    GARANTIR INGRESSO | LOTE 01
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-start/5 to-transparent pointer-events-none z-[5]" />
     </section>
   );
