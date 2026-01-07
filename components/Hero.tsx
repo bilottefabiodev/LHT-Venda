@@ -2,7 +2,6 @@ import React from 'react';
 import { CalendarDays, Clock, Video } from 'lucide-react';
 import Badge from './Badge';
 import Button from './Button';
-import ScarcityBar from './ScarcityBar';
 import expertImage from '../assets/images/image1.png';
 
 const Logo = () => (
@@ -29,6 +28,54 @@ const Logo = () => (
 );
 
 const Hero: React.FC = () => {
+  // Função para capturar dados e enviar ao n8n antes de ir para a Eduzz
+  const handleCheckout = async (e: React.MouseEvent) => {
+    e.preventDefault(); // Impede o redirecionamento imediato
+
+    // 1. Captura de UTMs e Cookies técnicos
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    const getCookie = (name: string) => {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop()?.split(';').shift();
+      return '';
+    };
+
+    const payload = {
+      // Identificadores de UTM
+      utm_source: urlParams.get('utm_source') || 'Instagram',
+      utm_medium: urlParams.get('utm_medium') || 'direto',
+      utm_campaign: urlParams.get('utm_campaign') || 'nenhuma',
+      utm_content: urlParams.get('utm_content') || 'nenhum',
+      
+      // Dados Técnicos para Meta CAPI
+      origin: 'Landing Page High Ticket',
+      date: new Date().toISOString(),
+      client_user_agent: navigator.userAgent,
+      fbp: getCookie('_fbp'),
+      fbc: getCookie('_fbc') || urlParams.get('fbclid'),
+      event_source_url: window.location.href,
+      event_name: 'InitiateCheckout'
+    };
+
+    // 2. Envio para o n8n
+    try {
+      // Usamos 'keepalive' para garantir que a requisição termine mesmo se a página mudar
+      await fetch('https://foda-n8n-webhook.nxjcjs.easypanel.host/webhook/checkout-ilht', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true 
+      });
+    } catch (error) {
+      console.error('Erro ao registrar checkout:', error);
+    } finally {
+      // 3. Redirecionamento para a Eduzz
+      window.location.href = 'https://chk.eduzz.com/797VE1RVWE';
+    }
+  };
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col bg-[#0A0A0A] text-white font-sans selection:bg-brand-start selection:text-white">
       <div className="absolute inset-0 z-0">
@@ -69,12 +116,11 @@ const Hero: React.FC = () => {
             </p>
             <div className="w-full max-w-md">
               <div className="mb-4">
-                {/* Link do Checkout Adicionado Aqui */}
-                <a href="https://chk.eduzz.com/797VE1RVWE" target="_self">
+                <button onClick={handleCheckout} className="w-full">
                   <Button>
                     GARANTIR INGRESSO | LOTE 01
                   </Button>
-                </a>
+                </button>
               </div>
             </div>
           </div>
