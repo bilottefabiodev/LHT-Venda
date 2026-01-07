@@ -83,9 +83,7 @@ const PricingSection: React.FC = () => {
             <span className="tracking-tight flex items-center gap-2"><Monitor className="w-4 h-4 text-[#D15449]" /> Evento ao vivo e online</span>
           </div>
           <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl font-medium">
-            Vou dividir tudo sobre as estratégias que viraram nosso jogo através de um ingresso muito barato. 
-            O objetivo é vender uma imersão presencial, onde eu e meu time vamos planejar junto contigo, 
-            cada passo de um lançamento pago de 7 dígitos.
+            Vou dividir tudo sobre as estratégias que viraram nosso jogo através de um lançamento híbrido e um sistema atemporal de negócios digitais. O objetivo é vender uma mentoria/ serviço, onde eu e meu sócio vamos planejar junto contigo, cada passo de um lançamento híbrido 7 dígitos.
           </p>
         </div>
 
