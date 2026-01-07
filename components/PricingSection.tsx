@@ -5,11 +5,9 @@ import { faPix } from '@fortawesome/free-brands-svg-icons';
 
 const PricingSection: React.FC = () => {
   const benefits = [
-    "Estratégia de lançamento pago no detalhe.",
-    "Debriefing do nosso novo maior lançamento.",
+    "Estratégia de lançamento no detalhe.",
     "Planejamento de tráfego.",
     "Big idea, promessas e páginas.",
-    "Oficina de criativos.",
     "Dados, análises, insights e otimizações.",
     "Aumentando o Comparecimento.",
     "Narrativa do evento de lançamento.",
