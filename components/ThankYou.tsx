@@ -39,9 +39,9 @@ const ThankYou: React.FC = () => {
       </div>
 
       <div className="w-full max-w-xs">
-        <a href="https://mail.google.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://chat.whatsapp.com/GDQpEsUh44d2iusZo3wnl9" target="_blank" rel="noopener noreferrer">
           <Button>
-            ACESSAR MEU E-MAIL
+            ENTRAR NO GRUPO
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </a>
